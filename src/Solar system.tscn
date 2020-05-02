@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/Planets/Planet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Universe.cs" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 1, 0.843137, 0, 1 )
+
+[sub_resource type="Environment" id=3]
+ambient_light_color = Color( 0.596078, 0.596078, 0.596078, 1 )
+
+[node name="Universe" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 18, 0 )
+
+[node name="Planet2" parent="." groups=[
+"Planets",
+] instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13 )
+M = 1.0
+initialVelocity = Vector3( -860, 0, 0 )
+
+[node name="Planet3" parent="." groups=[
+"Planets",
+] instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -19 )
+M = 1.0
+initialVelocity = Vector3( -350, 0, 0 )
+
+[node name="Planet" parent="Planet3" index="0"]
+material/0 = SubResource( 1 )
+
+[node name="Sun" parent="." groups=[
+"Planets",
+] instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+M = 10000.0
+initialVelocity = Vector3( 10, 0, 0 )
+
+[node name="Planet" parent="Sun" index="0"]
+material/0 = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="Sun"]
+transform = Transform( 0.5, 0, 0, 0, -8.14603e-08, 0.5, 0, -0.5, -8.14603e-08, 0, 10.5, -8.14603e-07 )
+current = true
+
+[node name="OmniLight" type="OmniLight" parent="Sun"]
+light_energy = 6.8
+shadow_enabled = true
+omni_range = 49.4
+omni_attenuation = 0.594604
+
+[node name="OmniLight2" type="SpotLight" parent="Sun"]
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 10.5, -4.76837e-07 )
+spot_range = 111.6
+
+[node name="Camera2" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
+
+[editable path="Planet2"]
+
+[editable path="Planet3"]
+
+[editable path="Sun"]
