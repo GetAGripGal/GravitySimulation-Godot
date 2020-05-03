@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+initial_velocity_random = 1.0
+tangential_accel = 2.48
+color = Color( 1, 0.933333, 0, 1 )
+
+[sub_resource type="SphereMesh" id=2]
+radius = 0.25
+height = 0.25
+
+[node name="Particle" type="Particles"]
+process_material = SubResource( 1 )
+draw_passes = 2
+draw_pass_1 = SubResource( 2 )
+draw_pass_2 = null

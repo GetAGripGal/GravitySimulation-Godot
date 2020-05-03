@@ -1,0 +1,7 @@
+[gd_resource type="SpatialMaterial" format=2]
+
+[resource]
+flags_transparent = true
+params_grow = true
+params_grow_amount = -2.319
+albedo_color = Color( 1, 0.913725, 0.00392157, 1 )

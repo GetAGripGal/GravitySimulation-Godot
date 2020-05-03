@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/Universe.cs" type="Script" id=1]
+[ext_resource path="res://src/Planets/Planet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Sun.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UniverseEnv.tscn" type="PackedScene" id=4]
+
+[node name="Universe" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Sun" parent="." instance=ExtResource( 3 )]
+
+[node name="Planet" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10 )
+M = 1000.0
+initialVelocity = Vector3( 600, 0, 0 )
+
+[node name="Planet2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20 )
+M = 1000.0
+initialVelocity = Vector3( 600, 0, 0 )
+
+[node name="Planet3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15 )
+M = 1000.0
+initialVelocity = Vector3( 600, 0, 0 )
+
+[node name="Planet4" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25 )
+M = 1000.0
+initialVelocity = Vector3( 600, 0, 0 )
+
+[node name="Planet5" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30 )
+M = 1000.0
+initialVelocity = Vector3( 600, 0, 0 )
+
+[node name="WorldEnvironment" parent="." instance=ExtResource( 4 )]

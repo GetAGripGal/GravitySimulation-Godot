@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://SkyBox.jpg" type="Texture" id=1]
+
+[sub_resource type="PanoramaSky" id=5]
+panorama = ExtResource( 1 )
+
+[sub_resource type="Environment" id=3]
+background_mode = 2
+background_sky = SubResource( 5 )
+ambient_light_color = Color( 0.584314, 0.584314, 0.584314, 1 )
+ambient_light_energy = 16.0
+glow_enabled = true
+glow_bloom = 1.0
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource( 3 )

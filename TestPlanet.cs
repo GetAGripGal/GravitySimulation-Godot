@@ -1,8 +1,9 @@
 using Godot;
 using System;
 
-public class Planet : GravityObject
-{      
+public class TestPlanet : GravityObject
+{
+
     public override void _Ready()
     {
         _Init();
@@ -13,5 +14,4 @@ public class Planet : GravityObject
         UpdateVelocity(delta);
         MoveAndSlide(currentVelocity * delta);
     }
-
 }
