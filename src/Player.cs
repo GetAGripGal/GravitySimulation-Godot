@@ -27,6 +27,8 @@ public class Player : GravityObject
     private Camera _camera;
     private Spatial _rotationHelper;
 
+    bool OnPlanet = false;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {   
@@ -112,6 +114,11 @@ public class Player : GravityObject
         hvel = hvel.LinearInterpolate(target, accel * delta);
         _vel.x = hvel.x;
         _vel.z = hvel.z;
+        
+        if(OnPlanet)
+            currentVelocity.x = 0;
+            currentVelocity.z = 0;
+        
         MoveAndSlide((currentVelocity * delta));
     }
 
@@ -128,6 +135,16 @@ public class Player : GravityObject
             cameraRot.x = Mathf.Clamp(cameraRot.x, -70, 70);
             _rotationHelper.RotationDegrees = cameraRot;
         }
+    }
+
+    public void _on_Area_area_entered(PhysicsBody body)
+    {
+        OnPlanet = true;
+    }
+
+    public void _on_Area_area_exited(PhysicsBody body)
+    {
+        OnPlanet = false;
     }
 }
 

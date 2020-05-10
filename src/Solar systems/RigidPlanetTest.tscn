@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Universe.cs" type="Script" id=1]
+[ext_resource path="res://src/RigidPlanet.tscn" type="PackedScene" id=2]
+
+[node name="Universe" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Planet" parent="." groups=[
+"Planets",
+] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0 )
+M = 10.0
+initialVelocity = Vector3( 0, 0, 100 )
+
+[node name="Planet2" parent="." groups=[
+"Planets",
+] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
+M = 100.0
+
+[node name="Camera" type="Camera" parent="Planet2"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 13, 0 )

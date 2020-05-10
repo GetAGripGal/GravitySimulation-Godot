@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Planets/Planet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Universe.cs" type="Script" id=2]
-[ext_resource path="res://src/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://SkyBox.jpg" type="Texture" id=4]
 [ext_resource path="res://src/Sun.tscn" type="PackedScene" id=5]
 
@@ -19,6 +18,9 @@ background_mode = 2
 background_sky = SubResource( 3 )
 ambient_light_color = Color( 0.584314, 0.584314, 0.584314, 1 )
 ambient_light_energy = 16.0
+tonemap_mode = 2
+tonemap_exposure = 0.56
+tonemap_white = 2.09
 glow_enabled = true
 glow_bloom = 1.0
 
@@ -28,50 +30,57 @@ script = ExtResource( 2 )
 [node name="Planet4" parent="." groups=[
 "Planets",
 ] instance=ExtResource( 1 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 23 )
-M = 1000.0
-initialVelocity = Vector3( -860, 0, 0 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 20 )
+M = 6000.0
+initialVelocity = Vector3( -1500, 0, 0 )
 
 [node name="Planet" parent="Planet4" index="0"]
 material/0 = SubResource( 1 )
 
-[node name="Planet2" parent="." groups=[
-"Planets",
-] instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12 )
-M = 800.0
-initialVelocity = Vector3( -890, 0, 0 )
-
 [node name="Planet3" parent="." groups=[
 "Planets",
 ] instance=ExtResource( 1 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -15 )
-M = 245.0
-initialVelocity = Vector3( -890, 0, 0 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -53 )
+M = 35.0
+initialVelocity = Vector3( 200, 0, 0 )
 
 [node name="Planet" parent="Planet3" index="0"]
 material/0 = SubResource( 2 )
 
+[node name="Planet2" parent="." groups=[
+"Planets",
+] instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -47 )
+M = 3250.0
+initialVelocity = Vector3( 1750, 0, 0 )
+
+[node name="Camera" type="Camera" parent="Planet2"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 33, 0 )
+current = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 4 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, -18.9 )
-visible = false
-M = 10.0
-
-[node name="MeshInstance" parent="Player" index="0"]
-transform = Transform( 0.54, 0, 0, 0, -2.44784e-08, 0.72, 0, -0.56, -3.14722e-08, 0, -2.38419e-07, 0 )
-
 [node name="Sun" parent="." instance=ExtResource( 5 )]
+
+[node name="Sun" parent="Sun" index="0"]
+M = 100000.0
+initialVelocity = Vector3( 0, 0, 0 )
+
+[node name="OmniLight" parent="Sun/Sun" index="3"]
+light_energy = 0.21
+light_indirect_energy = 1.82
+omni_range = 397.4
+omni_attenuation = 0.00897421
+
+[node name="Camera" parent="Sun/Sun" index="4"]
+current = false
 
 [editable path="Planet4"]
 
-[editable path="Planet2"]
-
 [editable path="Planet3"]
 
-[editable path="Player"]
+[editable path="Planet2"]
 
 [editable path="Sun"]
 

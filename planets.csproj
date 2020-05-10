@@ -56,11 +56,14 @@
     <Compile Include="GravityObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Main.cs" />
+    <Compile Include="src\Menu.cs" />
     <Compile Include="src\Planets\Planet.cs" />
     <Compile Include="src\Player.cs" />
     <Compile Include="src\PlayerController.cs" />
+    <Compile Include="src\RigidPlanet.cs" />
     <Compile Include="src\Universe.cs" />
     <Compile Include="TestPlanet.cs" />
+    <Compile Include="RigidGravityObject.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # simplefps
 A first-person shooter asset for the Godot Engine.
 
@@ -27,9 +26,3 @@ Updated for Godot 3.1
 - Standing on Rigid Bodies.
 
 [![Icon](simplefps-icon.png)]
-=======
-# GravitySimulation-Godot
-An example of integrating newtons equation of gravity in Godot using C#
-
-Made for Godot 3.2.1
->>>>>>> 1c241b923a3367ac3567de896fa8469cbe275db4

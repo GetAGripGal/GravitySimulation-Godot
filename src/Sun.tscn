@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://src/Sun.tres" type="Material" id=1]
 [ext_resource path="res://src/Planets/Planet.tscn" type="PackedScene" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.996078, 0.74902, 0.00392157, 1 )
 
 [node name="Sun" type="Spatial"]
 
@@ -13,7 +15,7 @@ M = 10000.0
 initialVelocity = Vector3( -10, 0, 0 )
 
 [node name="Planet" parent="Sun" index="0"]
-material/0 = ExtResource( 1 )
+material/0 = SubResource( 1 )
 
 [node name="OmniLight" type="OmniLight" parent="Sun"]
 light_energy = 5.64

@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/art/reset.png" type="Texture" id=1]
+[ext_resource path="res://src/Menu.cs" type="Script" id=2]
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="CheckButton" parent="Control"]
+margin_left = 440.0
+margin_right = 516.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset" type="TextureButton" parent="Control"]
+margin_left = 520.0
+margin_top = 8.0
+margin_right = 536.0
+margin_bottom = 24.0
+rect_scale = Vector2( 3, 3 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="toggled" from="Control/Play" to="." method="_on_Play_toggled"]
+[connection signal="pressed" from="Control/Reset" to="." method="_on_Reset_pressed"]
